@@ -29,11 +29,12 @@ namespace App1
 
             IMessage platform = Xamarin.Forms.DependencyService.Get<IMessage>();
             string json = platform.bowlingJson("Jesse", "Jake");
-
+            string result = platform.TryPayment_WEB();
             result = await Task.Run(() =>
                 platform.run("https://raw.github.com/square/okhttp/master/README.md",json)
             );
 
+            
             result = "";
         }
     }

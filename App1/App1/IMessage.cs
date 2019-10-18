@@ -10,6 +10,6 @@ namespace App1
 
         string bowlingJson(string player1,string player2);
 
-
+        string TryPayment_WEB();
     }
 }
