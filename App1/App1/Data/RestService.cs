@@ -18,14 +18,15 @@ namespace App1.Data
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/xml"));
         }
 
-        public async Task SinglePaymentOrRequestRecurrentToken(String appId, String APIKey, String publicKey)
+        public async Task SinglePaymentOrRequestRecurrentToken(String appId, String publicKey)
         {
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "/web/payments");
             request.Headers.Add("Content-Type", "application/x-www-form - urlencoded");
             var postData = new List<KeyValuePair<String, String>>();
             postData.Add(new KeyValuePair<string, string>("appId", appId));
-            postData.Add(new KeyValuePair<string, string>("APIKey", APIKey));
+            postData.Add(new KeyValuePair<string, string>("paymentType", "S"));
             postData.Add(new KeyValuePair<string, string>("publicKey", publicKey));
+            postData.Add(new KeyValuePair<string, string>("merTradeNo", "TEST20191019043015"));
         }
     }
 }

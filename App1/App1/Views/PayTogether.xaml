@@ -35,6 +35,7 @@
                       Margin="5,0,5,0"
                       ItemSelected="alistview_ItemSelected">
                 <ListView.ItemTemplate>
+                    
                     <DataTemplate>
                         <ViewCell>
                             <Grid ColumnSpacing="0"
@@ -44,10 +45,12 @@
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
+                                        
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
@@ -83,6 +86,13 @@
                                            HorizontalTextAlignment="End"
                                            FontAttributes="Bold"
                                            FontSize="Large"/>
+
+                                    <CheckBox IsChecked="False"
+                                              Grid.Column="3"
+                                             Grid.Row="4"/>
+
+                                   
+                                    
                                 </StackLayout>
                             </Grid>
                         </ViewCell>
