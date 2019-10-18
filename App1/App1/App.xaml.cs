@@ -10,7 +10,7 @@ namespace App1
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new MenuShell();
         }
 
         protected override void OnStart()
