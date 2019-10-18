@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App1.MenuShell"
+             xmlns:views="clr-namespace:App1.Views">
+    <TabBar>
+        <Tab Title="Home" Icon="home.png">
+            <ShellContent>
+                <views:HomePage/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="PayBuddy" Icon="hand.png">
+            <ShellContent>
+                <views:PayBuddy/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Go GR" Icon="qr.png">
+            <ShellContent>
+                <views:GoQR/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Pay Together" Icon="together.png">
+            <ShellContent>
+                <views:PayTogether/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="增值" Icon="add.png">
+            <ShellContent>
+                <views:AddBalance/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="記錄" Icon="record.png">
+            <ShellContent>
+                <views:Record/>
+            </ShellContent>
+        </Tab>
+    </TabBar>
+</Shell>
