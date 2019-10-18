@@ -19,14 +19,18 @@ namespace App1.Views
             public string shop { get; set; }
             public double totalamount { get; set; }
             public double amount { get; set; }
+            public Boolean isMember { get; set; }
+            public Boolean isHost { get; set; }
 
-            public AClass(string title, string host, string shop, double totalamount, double amount)
+            public AClass(string title, string host, string shop, double totalamount, double amount, Boolean isMember, Boolean isHost)
             {
                 this.title = title;
                 this.host = host;
                 this.shop = shop;
                 this.totalamount = totalamount;
                 this.amount = amount;
+                this.isMember = isMember;
+                this.isHost = isHost;
             }
         }
 
@@ -37,9 +41,9 @@ namespace App1.Views
 
             ObservableCollection<AClass> alist = new ObservableCollection<AClass>()
             {
-                new AClass("Dinner", "Tom", "Yummy shop", 200.0, 10.0),
-                new AClass("Meeting", "Mary", "Good Taste", 500.0, 50.0),
-                new AClass("Happy hour", "Owen", "Eat this", 300.0, 30.0)
+                new AClass("Booking", "Tom", "Yummy shop", 200.0, 10.0, true, false),
+                new AClass("Computer society activity", "Mary", "Good Taste", 500.0, 50.0, false, true),
+                new AClass("Happy hour", "Owen", "Eat this", 300.0, 30.0, true, false)
             };
             alistview.ItemsSource = alist;
             
@@ -52,6 +56,11 @@ namespace App1.Views
         private async void btncreate_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new QRCam());
+        }
+
+        private async void alistview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            await Navigation.PushAsync(new Group2Go());
         }
     }
 }

@@ -31,8 +31,9 @@
                          HorizontalOptions="FillAndExpand"/>
             </Grid>
             <ListView x:Name="alistview"
-                      
-                      HasUnevenRows="True">
+                      HasUnevenRows="True"
+                      Margin="5,0,5,0"
+                      ItemSelected="alistview_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
