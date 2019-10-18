@@ -82,7 +82,7 @@ namespace App1.Droid
 
         public void doSinglePayment()
         {
-            TapNGoSdkSettings.SetSandboxMode(true);
+            
 
             TapNGoPayment payment = new TapNGoPayment(appId[0], apiKey[0], publicKey[0]);
 
@@ -92,7 +92,8 @@ namespace App1.Droid
                 DoPayment(payment);
                 
             }
-            catch (Exception e) { };
+            catch (Exception e) {
+            };
             }
         }
     }
