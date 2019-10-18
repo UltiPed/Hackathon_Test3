@@ -8,6 +8,25 @@
              Title="Home">
     <ContentPage.Content>
         <StackLayout>
+            <Grid ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1.3*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <BoxView HeightRequest="8"
+                         Grid.Column="0"
+                         BackgroundColor="#ff0000"
+                         HorizontalOptions="FillAndExpand"/>
+                <BoxView HeightRequest="8"
+                         Grid.Column="1"
+                         BackgroundColor="#ff4719"
+                         HorizontalOptions="FillAndExpand"/>
+                <BoxView HeightRequest="8"
+                         Grid.Column="2"
+                         BackgroundColor="#ff9900"
+                         HorizontalOptions="FillAndExpand"/>
+            </Grid>
             <ListView x:Name="listview"
                       IsVisible="False">
                 <ListView.ItemTemplate>

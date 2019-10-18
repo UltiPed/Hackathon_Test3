@@ -14,6 +14,14 @@ namespace App1
         public MenuShell()
         {
             InitializeComponent();
+            var a = GetBackgroundColor(this);
+            var b = GetDisabledColor(this);
+            var c = GetForegroundColor(this);
+            var d = GetTabBarBackgroundColor(this);
+            var e = GetTabBarDisabledColor(this);
+            var f = GetTabBarForegroundColor(this);
+            var g = GetTabBarTitleColor(this);
+            var h = GetTabBarUnselectedColor(this);
         }
     }
 }

@@ -11,6 +11,25 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
+            <Grid ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1.3*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <BoxView HeightRequest="8"
+                         Grid.Column="0"
+                         BackgroundColor="#ff0000"
+                         HorizontalOptions="FillAndExpand"/>
+                <BoxView HeightRequest="8"
+                         Grid.Column="1"
+                         BackgroundColor="#ff4719"
+                         HorizontalOptions="FillAndExpand"/>
+                <BoxView HeightRequest="8"
+                         Grid.Column="2"
+                         BackgroundColor="#ff9900"
+                         HorizontalOptions="FillAndExpand"/>
+            </Grid>
             <Frame HasShadow="True"
                    Padding="0"
                    Margin="0">
@@ -51,38 +70,53 @@
                            Grid.Column="1"/>
                     <Label x:Name="totalamount"
                            Grid.Row="2"
-                           Grid.Column="1"/>
+                           Grid.Column="1"
+                           TextColor="Black"
+                           FontSize="Large"/>
                     <Label x:Name="memberCount"
                            Grid.Row="3"
                            Grid.Column="1"/>
                     <Label x:Name="amount"
                            Grid.Row="4"
-                           Grid.Column="1"/>
+                           Grid.Column="1"
+                           TextColor="Black"
+                           FontSize="Large"/>
                 </Grid>
             </Frame>
             <ListView x:Name="listview"
                       Margin="5,0,5,0"
-                      VerticalOptions="FillAndExpand">
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-
+                                    <CheckBox IsChecked="True"
+                                              Grid.Column="0"
+                                              Color="#e00036"/>
                                     <Label x:Name="memberName"
                                            Text="{Binding memberName}"
-                                           Grid.Column="0"/>
+                                           Grid.Column="1"
+                                           TextColor="Black"
+                                           VerticalTextAlignment="Center"/>
                                     <Label x:Name="state"
                                            Text="is ready to pay"
-                                           Grid.Column="1"/>
+                                           Grid.Column="2"
+                                           VerticalTextAlignment="Center"/>
                                     <Label x:Name="indiamount"
                                            Text="{Binding indiamount}"
-                                           Grid.Column="2"/>
+                                           Grid.Column="3"
+                                           FontSize="Large"
+                                           TextColor="Black"
+                                           VerticalOptions="EndAndExpand"
+                                           HorizontalTextAlignment="End"/>
                                 </Grid>
                             </StackLayout>
                         </ViewCell>

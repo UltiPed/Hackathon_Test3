@@ -5,7 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="App1.MenuShell"
-             xmlns:views="clr-namespace:App1.Views">
+             xmlns:views="clr-namespace:App1.Views"
+             Shell.BackgroundColor="White"
+             Shell.ForegroundColor="Black"
+             Shell.TabBarDisabledColor="Gray">
     <TabBar>
         <Tab Title="Home" Icon="home.png">
             <ShellContent>

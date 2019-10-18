@@ -68,7 +68,8 @@
                                 <Label Text="{Binding title, StringFormat='Event: {0}'}"
                                        Grid.Column="1"
                                        Grid.Row="0"
-                                       FontAttributes="Bold"/>
+                                       FontAttributes="Bold"
+                                       TextColor="Black"/>
                                 <Label Text="{Binding host, StringFormat='Owner: {0}'}"
                                        Grid.Column="1"
                                        Grid.Row="1"/>
@@ -85,14 +86,8 @@
                                            VerticalOptions="EndAndExpand"
                                            HorizontalTextAlignment="End"
                                            FontAttributes="Bold"
-                                           FontSize="Large"/>
-
-                                    <CheckBox IsChecked="False"
-                                              Grid.Column="3"
-                                             Grid.Row="4"/>
-
-                                   
-                                    
+                                           FontSize="Large"
+                                           TextColor="Black"/>
                                 </StackLayout>
                             </Grid>
                         </ViewCell>
