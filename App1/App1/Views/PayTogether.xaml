@@ -31,9 +31,9 @@
                          HorizontalOptions="FillAndExpand"/>
             </Grid>
             <ListView x:Name="alistview"
-                      
-                      HasUnevenRows="True">
-                
+                      HasUnevenRows="True"
+                      Margin="5,0,5,0"
+                      ItemSelected="alistview_ItemSelected">
                 <ListView.ItemTemplate>
                     
                     <DataTemplate>
@@ -53,10 +53,7 @@
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Grid.GestureRecognizers >
-                                    <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"
-                                NumberOfTapsRequired="1"/>
-                                </Grid.GestureRecognizers>
+
                                 <StackLayout Grid.Row="0"
                                              Grid.Column="0"
                                              Grid.RowSpan="4"
