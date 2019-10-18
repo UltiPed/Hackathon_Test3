@@ -58,7 +58,7 @@
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors" />
     <Reference Include="TapNGoSDK">
-      <HintPath>..\..\TapNGoSDK.dll</HintPath>
+      <HintPath>..\..\..\TapNGoSDK\bin\Debug\TapNGoSDK.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

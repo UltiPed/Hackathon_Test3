@@ -49,7 +49,19 @@ namespace App1.Droid
             resultMessage = "Payment Success";
         }
 
-      
+        protected override void DoPayment(TapNGoPayment payment)
+        {
+            try 
+            {
+                base.DoPayment(payment);
+            } 
+            catch (Exception ex)
+            {
+                resultMessage = ex.Message;
+            }
+            
+
+        }
 
         public string run(string url,string json)
         {
@@ -86,13 +98,14 @@ namespace App1.Droid
 
             TapNGoPayment payment = new TapNGoPayment(appId[0], apiKey[0], publicKey[0]);
 
-             payment.SetSingleAndRecurrentPayment("1", 10, currency, null, null);
+            payment.SetSingleAndRecurrentPayment("1", 10, currency, null, null);
             try
             {
                 DoPayment(payment);
                 
             }
-            catch (Exception e) { };
-            }
+            catch (Exception e) {
+            };
         }
     }
+}
