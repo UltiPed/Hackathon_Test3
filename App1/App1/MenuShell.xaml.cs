@@ -14,7 +14,6 @@ namespace App1
         public MenuShell()
         {
             InitializeComponent();
-           
         }
     }
 }

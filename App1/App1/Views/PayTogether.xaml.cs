@@ -50,8 +50,8 @@ namespace App1.Views
                 new AClass("Happy hour", "Owen", "Eat this", 300.0, 30.0, true, false)
             };
             alistview.ItemsSource = alist;
-
-        }
+            
+        }        
 
         protected override void OnAppearing()
         {
