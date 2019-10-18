@@ -6,10 +6,10 @@ namespace App1
 {
     public interface IMessage
     {
-        string run(string Url,string json);
+        string run(string Url, string json);
 
-        string bowlingJson(string player1,string player2);
+        string bowlingJson(string player1, string player2);
 
-        string TryPayment_WEB();
+        void doSinglePayment();
     }
 }

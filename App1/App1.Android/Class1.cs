@@ -34,14 +34,8 @@ namespace App1.Droid
 
         public Class1()
         {
-            TapNGoSdkSettings.SetSandboxMode(true);
 
-            TapNGoPayment payment = new TapNGoPayment(appId[0], apiKey[0], publicKey[0]);
-
-            payment.SetSingleAndRecurrentPayment("1", 10, currency, null, null);
-
-
-
+           
 
         }
 
@@ -55,11 +49,7 @@ namespace App1.Droid
             resultMessage = "Payment Success";
         }
 
-        public String TryPayment_WEB()
-        {
-            DoPayment(WEB_APP);
-            return resultMessage;
-        }
+      
 
         public string run(string url,string json)
         {
@@ -89,5 +79,20 @@ namespace App1.Droid
         + "{'name':'" + player2 + "','history':[6,10,5,10,10],'color':-48060,'total':41}"
         + "]}";
         }
+
+        public void doSinglePayment()
+        {
+            TapNGoSdkSettings.SetSandboxMode(true);
+
+            TapNGoPayment payment = new TapNGoPayment(appId[0], apiKey[0], publicKey[0]);
+
+             payment.SetSingleAndRecurrentPayment("1", 10, currency, null, null);
+            try
+            {
+                DoPayment(payment);
+                
+            }
+            catch (Exception e) { };
+            }
         }
-}
+    }
