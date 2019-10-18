@@ -23,13 +23,17 @@ namespace App1.Views
             public double totalamount { get; set; }
             public double amount { get; set; }
 
-            public AClass(string title, string host, string shop, double totalamount, double amount)
+            public bool checkbox_tick { get; set; }
+            public bool checkbox_notick { get; set; }
+            public AClass(string title, string host, string shop, double totalamount, double amount, bool checkbox_notick, bool checkbox_tick)
             {
                 this.title = title;
                 this.host = host;
                 this.shop = shop;
                 this.totalamount = totalamount;
                 this.amount = amount;
+                this.checkbox_tick = checkbox_tick;
+                this.checkbox_notick = checkbox_notick;
             }
         }
 
@@ -41,9 +45,9 @@ namespace App1.Views
 
             ObservableCollection<AClass> alist = new ObservableCollection<AClass>()
             {
-                new AClass("Dinner", "Tom", "Yummy shop", 200.0, 10.0),
-                new AClass("Meeting", "Mary", "Good Taste", 500.0, 50.0),
-                new AClass("Happy hour", "Owen", "Eat this", 300.0, 30.0)
+                new AClass("Dinner", "Tom", "Yummy shop", 200.0, 10.0,true,false),
+                new AClass("Meeting", "Mary", "Good Taste", 500.0, 50.0,true,false),
+                new AClass("Happy hour", "Owen", "Eat this", 300.0, 30.0,true,false)
             };
             alistview.ItemsSource = alist;
 
@@ -68,6 +72,16 @@ namespace App1.Views
             };
 
             await Navigation.PushAsync(scannerPage);
+
+
+        }
+
+        public void OnTapGestureRecognizerTapped(object sender, EventArgs args)
+        {
+            var e = (Grid)sender;
+            
+            return;
+
         }
     }
 }
