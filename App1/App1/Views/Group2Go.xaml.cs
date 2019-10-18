@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace App1
+namespace App1.Views
 {
-    public partial class MenuShell : Shell
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class Group2Go : ContentPage
     {
-        public MenuShell()
+        public Group2Go()
         {
             InitializeComponent();
-           
         }
     }
 }

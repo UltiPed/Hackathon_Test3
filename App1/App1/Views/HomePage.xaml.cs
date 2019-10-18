@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,14 @@ namespace App1.Views
         public HomePage()
         {
             InitializeComponent();
+
+            ObservableCollection<String> alist = new ObservableCollection<String>();
+            alist.Add("1");
+            alist.Add("2");
+            alist.Add("3");
+            alist.Add("4");
+            listview.ItemsSource = alist;
+
         }
     }
 }
