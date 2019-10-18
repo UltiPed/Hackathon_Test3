@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using ZXing.Net.Mobile.Forms;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,7 +13,10 @@ namespace App1.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PayTogether : ContentPage
     {
-        public class AClass {
+        ZXingScannerPage scannerPage;
+
+        public class AClass
+        {
             public string title { get; set; }
             public string host { get; set; }
             public string shop { get; set; }
@@ -34,8 +37,9 @@ namespace App1.Views
             }
         }
 
-        
-        public PayTogether()
+
+
+        public PayTogether() : base()
         {
             InitializeComponent();
 
@@ -46,7 +50,7 @@ namespace App1.Views
                 new AClass("Happy hour", "Owen", "Eat this", 300.0, 30.0, true, false)
             };
             alistview.ItemsSource = alist;
-            
+
         }
 
         protected override void OnAppearing()
@@ -55,7 +59,19 @@ namespace App1.Views
         }
         private async void btncreate_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new QRCam());
+            scannerPage = new ZXingScannerPage();
+            scannerPage.OnScanResult += (result) =>
+            {
+                scannerPage.IsScanning = false;
+
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    Navigation.PopAsync();
+                    DisplayAlert("Scanned Barcode", result.Text, "Success");
+                });
+            };
+
+            await Navigation.PushAsync(scannerPage);
         }
 
         private async void alistview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
