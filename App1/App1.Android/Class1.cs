@@ -35,17 +35,17 @@ namespace App1.Droid
 
         protected override void OnPaymentFail(TapNGoPayResult p0)
         {
-            throw new NotImplementedException();
+            resultMessage = "Payment Failed";
         }
 
         protected override void OnPaymentSuccess(TapNGoPayResult p0)
         {
-            throw new NotImplementedException();
+            resultMessage = "Payment Success";
         }
 
-        public static String tryPayment_WEB()
+        public String tryPayment_WEB()
         {
-            dopay
+            DoPayment(WEB_APP);
             return resultMessage;
         }
 
