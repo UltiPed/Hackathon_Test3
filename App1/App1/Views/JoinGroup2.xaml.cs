@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace App1.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NewPayment : ContentPage
+    public partial class JoinGroup2 : ContentPage
     {
         public class Members
         {
@@ -25,22 +25,34 @@ namespace App1.Views
                 this.indiamount = indiamount;
             }
         }
-        public NewPayment()
+        public JoinGroup2()
         {
             InitializeComponent();
 
-            name.Text = "Activity";
-            shop.Text = "2000fun";
-            totalamount.Text = "150";
-            memberCount.Text = "1";
-            amount.Text = "150";
+            name.Text = "Birthday Party";
+            shop.Text = "Mcdonald";
+            totalamount.Text = "400";
+            memberCount.Text = "5";
+            amount.Text = "80";
 
 
-            ObservableCollection<Members> members = new ObservableCollection<Members>();
-            members.Add(new Members("Henry", 150));
+            ObservableCollection<Members> members = new ObservableCollection<Members>()
+            {
+                new Members("Alan", 80),
+                new Members("Nick", 80),
+                new Members("Howard", 80),
+                new Members("Ken", 80),
+                new Members("Henry", 80)
+            };
 
             listview.ItemsSource = members;
 
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            Navigation.RemovePage(this);
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)

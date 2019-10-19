@@ -26,7 +26,7 @@
                          BackgroundColor="#ff9900"
                          HorizontalOptions="FillAndExpand"/>
             </Grid>
-            <Label Text="Go QR"
+            <Label Text="Loading......"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

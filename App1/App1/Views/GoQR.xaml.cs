@@ -14,6 +14,7 @@ namespace App1.Views
     public partial class GoQR : ContentPage
     {
         ZXingScannerPage scannerPage;
+        public static Boolean needScan = true;
         public GoQR()
         {
             InitializeComponent();
@@ -23,20 +24,25 @@ namespace App1.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            scannerPage = new ZXingScannerPage();
-            scannerPage.OnScanResult += (result) =>
+            if (needScan)
             {
-                scannerPage.IsScanning = false;
-
-                Device.BeginInvokeOnMainThread(() =>
+                scannerPage = new ZXingScannerPage();
+                scannerPage.OnScanResult += (result) =>
                 {
-                    Navigation.PopAsync();
-                    DisplayAlert("Scanned Barcode", result.Text, "Success");
-                    Navigation.PushAsync(new NewPayment());
-                });
-            };
+                    scannerPage.IsScanning = false;
 
-            await Navigation.PushAsync(scannerPage);
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        await Navigation.PopAsync();
+                        await DisplayAlert("Scanned Barcode", result.Text, "Success");
+                        await Navigation.PushAsync(new JoinGroup());
+                    });
+                };
+                needScan = false;
+                await Navigation.PushAsync(scannerPage);
+            }
+            
         }
+
     }
 }

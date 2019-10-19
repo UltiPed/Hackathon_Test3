@@ -67,10 +67,11 @@ namespace App1.Views
             {
                 scannerPage.IsScanning = false;
 
-                Device.BeginInvokeOnMainThread(() =>
+                Device.BeginInvokeOnMainThread(async () =>
                 {
-                    Navigation.PopAsync();
-                    DisplayAlert("Scanned Barcode", result.Text, "Success");
+                    await Navigation.PopAsync();
+                    await DisplayAlert("Scanned Barcode", result.Text, "Success");
+                    await Navigation.PushAsync(new NewPayment());
                 });
             };
 
@@ -79,7 +80,10 @@ namespace App1.Views
 
         private async void alistview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            if (alistview.SelectedItem == null) { return; }
+
             await Navigation.PushAsync(new Group2Go());
+            alistview.SelectedItem = null;
         }
     }
 }
