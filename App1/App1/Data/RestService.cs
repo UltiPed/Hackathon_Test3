@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace App1.Data
 {
@@ -15,7 +16,7 @@ namespace App1.Data
             client = new HttpClient();
             client.BaseAddress = new Uri("http://gateway.sandbox.tapngo.com.hk");
             client.MaxResponseContentBufferSize = 256000;
-            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/xml"));
+            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
 
         }
@@ -69,9 +70,17 @@ namespace App1.Data
             var postData = new List<KeyValuePair<String, String>>();
             postData.Add(new KeyValuePair<string, string>("appId", appId));
             postData.Add(new KeyValuePair<string, string>("paymentType", "S"));
-            postData.Add(new KeyValuePair<string, string>("publicKey", publicKey));
+            postData.Add(new KeyValuePair<string, string>("publicKey", newkey));
+            postData.Add(new KeyValuePair<string, string>("payload", ""));
             postData.Add(new KeyValuePair<string, string>("merTradeNo", "TEST20191019043015"));
 
+            var content = new FormUrlEncodedContent(postData);
+
+            var response = await client.PostAsync(client.BaseAddress.ToString(), content);
+
+            var jsonObj = response.Content.ReadAsStringAsync().Result;
+
+            //var token = JsonConvert.DeserializeObject<Token>(jsonObj);
         }
 
 
