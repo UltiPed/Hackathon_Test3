@@ -13,7 +13,7 @@ namespace App1.Data
         public RestService()
         {
             client = new HttpClient();
-            client.BaseAddress = new Uri("gateway.sandbox.tapngo.com.hk");
+            client.BaseAddress = new Uri("http://gateway.sandbox.tapngo.com.hk");
             client.MaxResponseContentBufferSize = 256000;
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/xml"));
 
@@ -26,8 +26,9 @@ namespace App1.Data
             List<string> sentence = new List<string>();
             int index = 0;
             string result = "---- - BEGIN PUBLIC KEY-----\n";
+            publicKey = (publicKey.Trim());
 
-            foreach (char c in word)
+            foreach (char c in publicKey)
             {
                 //if smaller then 30 add to result
                 if (index <= 64)
@@ -53,18 +54,17 @@ namespace App1.Data
 
             sentence.Add(result);
             sentence.Add("\n-----END PUBLIC KEY-----");
+            string newkey = string.Join("", sentence); ;
+            
 
-            foreach (string w in sentence)
-            {
+               
 
-                Console.WriteLine(w);
+            
 
-            }
+            
+            
 
-            publicKey = trim(publicKey);
-            formatKey =  wordwrap(publicKey, 64, "\n", true)+ "\n-----END PUBLIC KEY-----";
-
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "/web/payments");
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "web/payments");
             request.Headers.Add("Content-Type", "application/x-www-form - urlencoded");
             var postData = new List<KeyValuePair<String, String>>();
             postData.Add(new KeyValuePair<string, string>("appId", appId));

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ZXing.Net.Mobile.Forms;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using App1.Data;
 
 namespace App1.Views
 {
@@ -60,10 +61,8 @@ namespace App1.Views
         }
         private async void btncreate_Clicked(object sender, EventArgs e)
         {
-            
-            
-
-               scannerPage = new ZXingScannerPage();
+           
+                scannerPage = new ZXingScannerPage();
             scannerPage.OnScanResult += (result) =>
             {
                 scannerPage.IsScanning = false;
