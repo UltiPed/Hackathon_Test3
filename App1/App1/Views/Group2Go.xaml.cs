@@ -39,7 +39,8 @@ namespace App1.Views
             {
                 new Members("Alan", 37.5),
                 new Members("Nick", 37.5),
-                new Members("Howard", 37.5)
+                new Members("Howard", 37.5),
+                new Members("Henry", 37.5)
             };
 
             listview.ItemsSource = members;

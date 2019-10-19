@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace App1.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NewPayment : ContentPage
+    public partial class JoinGroup : ContentPage
     {
         public class Members
         {
@@ -25,22 +25,33 @@ namespace App1.Views
                 this.indiamount = indiamount;
             }
         }
-        public NewPayment()
+        public JoinGroup()
         {
             InitializeComponent();
 
-            name.Text = "Activity";
-            shop.Text = "2000fun";
-            totalamount.Text = "150";
-            memberCount.Text = "1";
-            amount.Text = "150";
+            name.Text = "Birthday Party";
+            shop.Text = "Mcdonald";
+            totalamount.Text = "400";
+            memberCount.Text = "4";
+            amount.Text = "100";
 
 
-            ObservableCollection<Members> members = new ObservableCollection<Members>();
-            members.Add(new Members("Henry", 150));
+            ObservableCollection<Members> members = new ObservableCollection<Members>()
+            {
+                new Members("Alan", 100),
+                new Members("Nick", 100),
+                new Members("Howard", 100),
+                new Members("Ken", 100)
+            };
 
             listview.ItemsSource = members;
 
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            GoQR.needScan = true;
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
@@ -48,9 +59,10 @@ namespace App1.Views
 
         }
 
-        private void btnconfirm_Clicked(object sender, EventArgs e)
+        private async void btnconfirm_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new JoinGroup2());
+            Navigation.RemovePage(this);
         }
 
         private void btncancel_Clicked(object sender, EventArgs e)
