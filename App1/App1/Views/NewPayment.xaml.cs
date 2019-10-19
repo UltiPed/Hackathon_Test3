@@ -11,9 +11,10 @@ using Xamarin.Forms.Xaml;
 namespace App1.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Group2Go : ContentPage
+    public partial class NewPayment : ContentPage
     {
-        public class Members { 
+        public class Members
+        {
             public String memberName { get; set; }
             public Double indiamount { get; set; }
 
@@ -24,23 +25,18 @@ namespace App1.Views
                 this.indiamount = indiamount;
             }
         }
-        public Group2Go()
+        public NewPayment()
         {
             InitializeComponent();
 
-            name.Text = "Buy Credits";
+            name.Text = "Activity";
             shop.Text = "2000fun";
             totalamount.Text = "150";
-            memberCount.Text = "4";
-            amount.Text = "37.5";
+            memberCount.Text = "1";
+            amount.Text = "150";
 
 
-            ObservableCollection<Members> members = new ObservableCollection<Members>()
-            {
-                new Members("Alan", 37.5),
-                new Members("Nick", 37.5),
-                new Members("Howard", 37.5)
-            };
+            ObservableCollection<Members> members = new ObservableCollection<Members>();
 
             listview.ItemsSource = members;
 

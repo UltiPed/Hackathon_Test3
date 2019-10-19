@@ -47,7 +47,8 @@ namespace App1.Views
             {
                 new AClass("Booking", "Tom", "Yummy shop", 200.0, 10.0, true, false),
                 new AClass("Computer society activity", "Mary", "Good Taste", 500.0, 50.0, false, true),
-                new AClass("Happy hour", "Owen", "Eat this", 300.0, 30.0, true, false)
+                new AClass("Happy hour", "Owen", "Eat this", 300.0, 30.0, true, false),
+                new AClass("Buy Credits", "Owen", "2000fun", 150, 37.5, true, false)
             };
             alistview.ItemsSource = alist;
             
