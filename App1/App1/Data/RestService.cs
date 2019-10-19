@@ -16,10 +16,54 @@ namespace App1.Data
             client.BaseAddress = new Uri("gateway.sandbox.tapngo.com.hk");
             client.MaxResponseContentBufferSize = 256000;
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/xml"));
+
+
         }
 
         public async Task SinglePaymentOrRequestRecurrentToken(String appId, String publicKey)
         {
+
+            List<string> sentence = new List<string>();
+            int index = 0;
+            string result = "---- - BEGIN PUBLIC KEY-----\n";
+
+            foreach (char c in word)
+            {
+                //if smaller then 30 add to result
+                if (index <= 64)
+                {
+
+                    //increase char index
+                    index++;
+                    result += c;
+
+                }
+
+                if (index == 64)
+                {
+                    //if index hits the first 30 chars add to list and clear result and index
+                    result = result + "\n";
+                    sentence.Add(result);
+                    result = "";
+                    index = 0;
+                }
+
+
+            }
+
+            sentence.Add(result);
+            sentence.Add("\n-----END PUBLIC KEY-----");
+
+            foreach (string w in sentence)
+            {
+
+                Console.WriteLine(w);
+
+            }
+
+            publicKey = trim(publicKey);
+            formatKey =  wordwrap(publicKey, 64, "\n", true)+ "\n-----END PUBLIC KEY-----";
+
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "/web/payments");
             request.Headers.Add("Content-Type", "application/x-www-form - urlencoded");
             var postData = new List<KeyValuePair<String, String>>();
@@ -27,6 +71,9 @@ namespace App1.Data
             postData.Add(new KeyValuePair<string, string>("paymentType", "S"));
             postData.Add(new KeyValuePair<string, string>("publicKey", publicKey));
             postData.Add(new KeyValuePair<string, string>("merTradeNo", "TEST20191019043015"));
+
         }
+
+
     }
 }

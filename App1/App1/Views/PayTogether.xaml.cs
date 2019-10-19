@@ -60,7 +60,10 @@ namespace App1.Views
         }
         private async void btncreate_Clicked(object sender, EventArgs e)
         {
-            scannerPage = new ZXingScannerPage();
+            
+            
+
+               scannerPage = new ZXingScannerPage();
             scannerPage.OnScanResult += (result) =>
             {
                 scannerPage.IsScanning = false;
